@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= pageTitle %></title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <% if (prods.length > 0) { %>
+    <table>
+        <tr>
+            <th>Изображение</th>
+            <th>ID</th>
+            <th>Описание</th>
+            <th>Дата добавления</th>
+            <th>Цена</th>
+        </tr>
+        <% for (let product of prods) { %>
+        <tr>
+            <td><img src="<%= product.img %>" alt="<%= product.title %>"></td>
+            <td><a href="<%= product.link %>"><%= product.id %></a></td>
+            <td><%= product.title %></td>
+            <!-- <div class="card__image">
+                    <img src="<%= product.img %>" alt="<%= product.title %>">
+                </div> -->
+            <td><%= product.date %></td>
+            <td><%= product.price %></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    <h1>No Products Found!</h1>
+    <% } %>
+</body>
+
+</html>
